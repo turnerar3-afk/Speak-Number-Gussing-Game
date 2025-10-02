@@ -27,9 +27,10 @@ recognition.addEventListener('result', onSpeak);
 
 // See in DOM what user speaks
 function writeMessage(msg) {
-    msgEl.innerHTML =
-        `<div>You said: </div>
-        <span class="box">${msg}</span>
-        `;   
-
+    const div = document.createElement('div');
+    div.textContent = 'You said:';
+    const span = document.createElement('span');
+    span.classList.add('box');
+    span.textContent = msg;
+    msgEl.append(div, span); 
 }
