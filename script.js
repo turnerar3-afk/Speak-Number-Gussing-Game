@@ -36,8 +36,12 @@ function writeMessage(msg) {
     msgEl.append(div, span); 
 }
 
-  // Update the value of num if it's a single-digit number
-  if (msg === 'one' || msg === 'won') {
+// Check msg against the secret number
+function checkNumber(msg) {
+  const num = Number(msg);
+
+   // Update the value of num if it's a single-digit number
+    if (msg === 'one' || msg === 'won') {
     num = 1;
   } else if (msg === 'two') {
     num = 2;
@@ -57,9 +61,6 @@ function writeMessage(msg) {
     num = 9;
   }
 
-// Check msg against the secret number
-function checkNumber(msg) {
-  const num = Number(msg);
 
   // Check if the spoken content is a valid number
   if(Number.isNaN(num)) {
@@ -92,6 +93,8 @@ function checkNumber(msg) {
     // Add listener and handler to button
     button.addEventListener('click', () => window.location.reload());
 
+    // Clear out innerHTML of mesgEL
+    msgEl.innerHTML = '';
     msgEl.append(h2, button);
   } else if (num > randomNum) {
     const div = document.createElement('div');
@@ -101,6 +104,12 @@ function checkNumber(msg) {
     // if (num < randomNum)
     const div = document.createElement('div');
     div.textContent = 'GO HIGHER';
+
+    msgEl.innerHTML = '';
     msgEl.append(div);
   }
 }
+// A the end of the speechRecognition service, start it agin
+recognition.addEventListener('end', () => recognition.start());
+
+// Reload the page when the button is clicked
