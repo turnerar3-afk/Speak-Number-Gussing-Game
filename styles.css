@@ -36,7 +36,7 @@ p {
 }
 .msg {
   font-size: 1.5em;
-  margin: 0;
+  margin-top: 40px;
 }
 
 .box {
