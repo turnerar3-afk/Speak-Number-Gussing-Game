@@ -66,6 +66,7 @@ function checkNumber(msg) {
   if(Number.isNaN(num)) {
     const div = document.createElement('div');
     div.textContent = 'That is not a valid number';
+    msgEl.innerHTML = '';
     msgEl.append(div);
 
     return;
@@ -75,6 +76,7 @@ function checkNumber(msg) {
   if (num < 1 || num > 100) {
     const div = document.createElement('div');
     div.textContent = 'Number must be between 1 and 100';
+    msgEl.innerHTML = '';
     msgEl.append(div);
 
     return;
@@ -99,6 +101,7 @@ function checkNumber(msg) {
   } else if (num > randomNum) {
     const div = document.createElement('div');
     div.textContent = 'GO LOWER';
+    msgEl.innerHTML = '';
     msgEl.append(div);
   } else {
     // if (num < randomNum)
