@@ -107,7 +107,6 @@ function checkNumber(msg) {
     // if (num < randomNum)
     const div = document.createElement('div');
     div.textContent = 'GO HIGHER';
-
     msgEl.innerHTML = '';
     msgEl.append(div);
   }
