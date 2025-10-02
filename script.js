@@ -19,8 +19,17 @@ recognition.start();
 // Capture user speak
 function onSpeak(event) {
   const msg = event.results[0][0].transcript;  // You can log the event to view the structure of the data
-  console.log(msg);
+    writeMessage(msg); 
 }
 
 // Speak result
 recognition.addEventListener('result', onSpeak);
+
+// See in DOM what user speaks
+function writeMessage(msg) {
+    msgEl.innerHTML =
+        `<div>You said: </div>
+        <span class="box">${msg}</span>
+        `;   
+
+}
