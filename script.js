@@ -36,23 +36,6 @@ function writeMessage(msg) {
     msgEl.append(div, span); 
 }
 
-// Check msg against the secret number
-function checkNumber(msg) {
-  const num = Number(msg);
-}
-  // Check if the spoken content is a valid number
-  if (Number.isNaN(num)) {
-    const div = document.createElement('div');
-    div.textContent = 'That is not a valid number';
-    msgEl.append(div);
-
-    return;
-  }
-
-// Check msg against the secret number
-function checkNumber(msg) {
-  let num = Number(msg);  // 👈 This is now a let instead of const since I reassign the value below
-
   // Update the value of num if it's a single-digit number
   if (msg === 'one' || msg === 'won') {
     num = 1;
@@ -74,16 +57,18 @@ function checkNumber(msg) {
     num = 9;
   }
 
+// Check msg against the secret number
+function checkNumber(msg) {
+  const num = Number(msg);
+
   // Check if the spoken content is a valid number
-  if (Number.isNaN(num)) {
+  if(Number.isNaN(num)) {
     const div = document.createElement('div');
     div.textContent = 'That is not a valid number';
     msgEl.append(div);
 
     return;
   }
-
-  // ... everything else below here is the same
 
   // Check if it's in range
   if (num < 1 || num > 100) {
